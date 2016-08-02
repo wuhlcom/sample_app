@@ -1,5 +1,4 @@
-#require 'rails_helper'
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.describe "StaticPages", type: :request do
   describe "GET /static_pages" do
