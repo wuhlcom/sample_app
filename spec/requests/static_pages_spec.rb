@@ -1,4 +1,5 @@
 require 'rails_helper'
+#require 'spec_helper'
 
 RSpec.describe "StaticPages", type: :request do
   describe "GET /static_pages" do
@@ -44,4 +45,16 @@ RSpec.describe "StaticPages", type: :request do
       expect(page).to have_title("Ruby on Rails Tutorial Sample App | About")
     end 
   end
+
+ describe "Contact page" do
+    it "should have the conte1nt 'Contact Us'" do
+      visit static_pages_contact_path
+      expect(page).to have_content('Contact Us')
+    end
+  
+    it "should have the right title 'Contact'" do
+      visit static_pages_contact_path
+      expect(page).to have_title("Ruby on Rails Tutorial Sample App | Contact")
+    end
+ end 
 end

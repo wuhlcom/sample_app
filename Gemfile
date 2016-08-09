@@ -4,13 +4,14 @@ ruby '2.3.1'
 gem 'rails', '4.0.8'
 
 group :development, :test do
-  gem 'sqlite3'
+   gem 'sqlite3', '1.3.11'
 
   #gem 'rspec-rails', '2.13.1'
-   gem 'rspec-rails', '3.3.2'
-  
-# gem 'guard-rspec', '2.5.0'
- gem 'guard-rspec', '4.6.0'
+  gem 'rspec-rails', '3.3.2'
+ 
+  # gem 'guard-rspec', '2.5.0'
+  # gem 'guard-rspec', '4.6.0'
+  gem 'guard-rspec','4.7.3'
  
   gem 'spork-rails', '4.0.0'
  
@@ -22,7 +23,8 @@ end
 group :test do
   gem 'selenium-webdriver', '2.35.1'
   #gem 'capybara', '2.1.0'
-  gem 'capybara', '2.2.0'
+  gem 'capybara', '2.7.1'
+  #gem 'capybara'
 
    # Uncomment this line on OS X.
    # gem 'growl', '1.0.3'
