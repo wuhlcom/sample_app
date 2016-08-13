@@ -66,10 +66,10 @@ p {
  padding-top:9px;
  font-weight:bold;
  line-height:1;
-}
-#logo:hover {
-color:#fff;
-text-decoration:none;
+ &:hover {
+         color:#fff;
+         text-decoration:none;
+        }
 }
 /* footer */
 footer {
@@ -77,26 +77,23 @@ footer {
  padding-top:5px;
  border-top:1px solid #eaeaea;
  color:#999;
-}
+ a {
+   color:#555;
+  &:hover{
+    color:#222;
+    }
+ }
 
-footer a {
- color:#555;
-}
-
-footer a:hover{
- color:#222;
-}
-
-footer small {
+ small {
  float:left;
-}
+ }
 
-footer ul {
+ ul {
  float:right;
  list-style:none;
-}
-
-footer ul li {
- float:left;
- margin-left:10px;
+   li {
+      float:left;
+      margin-left:10px;
+     }
+ }
 }
