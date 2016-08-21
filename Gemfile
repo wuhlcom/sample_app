@@ -11,7 +11,8 @@ group :development, :test do
   #gem 'rspec-rails', '2.13.1'
   #gem 'rspec-rails', '3.3.2'
   gem 'rspec-rails', '~> 3.4.0'
- 
+  gem 'rspec-its'
+  
   # gem 'guard-rspec', '2.5.0'
   # gem 'guard-rspec', '4.6.0'
   gem 'guard-rspec','4.7.3'
