@@ -18,3 +18,5 @@
 .secret
 #ignore swp
 *.swp
+#ignor doc
+/doc
