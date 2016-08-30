@@ -3,13 +3,6 @@ require 'rails_helper'
 RSpec.describe "AuthenticationPages", type: :request do
   
   subject {page}
- 
-  # describe "GET /authentication_pages" do
-  #   it "works! (now write some real specs)" do
-  #     get authentication_pages_index_path
-  #     expect(response).to have_http_status(200)
-  #   end
-  # end
    
   describe "signin page" do 
     before {visit signin_path}
@@ -32,11 +25,6 @@ RSpec.describe "AuthenticationPages", type: :request do
 
     describe "with valid information" do
       let(:user) { FactoryGirl.create(:user) }
-      #before do
-       # fill_in "Email",    with: user.email.upcase
-        #fill_in "Password", with: user.password
-        #click_button "Sign in"
-      #end
       before { sign_in user}
 
       it { should have_title(user.name) }
@@ -69,6 +57,22 @@ RSpec.describe "AuthenticationPages", type: :request do
           specify { expect(response).to redirect_to(signin_path) }
         end
       end #end of in the users controller
+
+      describe "when attempting to visit a protected page" do
+          before do
+		visit edit_user_path(user)
+		fill_in "Email", with: user.email
+		fill_in "Password",with:user.password
+		click_button "Sign in"
+	  end
+        
+          describe "after signing in" do
+         
+	    it "should render the desired protected page" do
+		expect(page).to have_title("Edit user")
+	   end
+      end
+     end
     end #end fo for non-signed-in users
 
    describe "as wrong user" do
@@ -76,17 +80,18 @@ RSpec.describe "AuthenticationPages", type: :request do
       let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com") }
       before { sign_in user, no_capybara: true }
 
-      describe "submitting a GET request to the Users#edit action" do
-        before { get edit_user_path(wrong_user) }
-        specify { expect(response.body).not_to match(full_title('Edit user')) }
-        specify { expect(response).to redirect_to(root_url) }
+      describe "visiting Users#edit page" do
+        before { visit edit_user_path(wrong_user) }
+        it { should_not have_title(full_title('Edit user')) }
       end
 
       describe "submitting a PATCH request to the Users#update action" do
+        before { sign_in user, no_capybara: true }
         before { patch user_path(wrong_user) }
-        specify { expect(response).to redirect_to(root_url) }
+        specify { expect(response).to redirect_to(root_path) }
       end
 
    end #end of as wrong user
+
   end #end of authorization
 end
