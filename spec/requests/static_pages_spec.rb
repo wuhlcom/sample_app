@@ -46,12 +46,12 @@ RSpec.describe "StaticPages", type: :request do
  end
 
  it "should have the right links on the layout" do
-    before{visit root_path}
+   visit root_path
     click_link "About"
-    it{ should have_title(full_title('About Us'))}
-    #click_link "Help"
-    #expect(page).to # fill in
-    #click_link "Contact"
+    expect(page).to have_title(full_title('About'))
+   # click_link "Help"
+   # expect(page).to # fill in
+    click_link "Contact"
     #expect(page).to # fill in
     #click_link "Home"
     #click_link "Sign up now!"
@@ -59,4 +59,4 @@ RSpec.describe "StaticPages", type: :request do
     #click_link "sample app"
     #expect(page).to # fill in
   end
- end
+end
