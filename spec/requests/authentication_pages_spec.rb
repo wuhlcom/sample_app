@@ -94,8 +94,8 @@ RSpec.describe "AuthenticationPages", type: :request do
       end
 
       describe "submitting a PATCH request to the Users#update action" do
-        #before { patch user_path(wrong_user) }
-        #specify { expect(response).to redirect_to(root_url) }
+        before { patch user_path(wrong_user) }
+        specify { expect(response).to redirect_to(root_url) }
       end
 
     end #end of as wrong user
