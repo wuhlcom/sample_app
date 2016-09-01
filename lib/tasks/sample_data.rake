@@ -7,7 +7,12 @@ namespace :db do
 			     password:"foobar",
 			     password_confirmation:"foobar",
 			     admin:true)
-	99.times do |n|
+		User.create!(name:"myself",
+			     email:"378433855@qq.com",
+			     password:"123456",
+			     password_confirmation:"123456",
+			     admin:true)
+		99.times do |n|
 		name = Faker::Name.name
 		email="example-#{n+1}@railstutorial.org"	
 		password="passowrd"
