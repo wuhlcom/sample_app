@@ -2,8 +2,10 @@ SampleApp::Application.routes.draw do
   #get "static_pages/home"
   root 'static_pages#home' #must be the first route
   
-  resources:users
-  resources:sessions,only:[:new,:create,:destroy]
+  resources :users
+  resources :sessions,    only: [:new,:create,:destroy]
+  resources :microposts,  only: [:create,:destroy]
+
   #get "users/new"
   match '/signup', to: 'users#new',via:'get'
   match '/signin', to: 'sessions#new',via:'get'
