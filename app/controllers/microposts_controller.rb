@@ -29,6 +29,6 @@ class MicropostsController < ApplicationController
 
 		def correct_user
 			@microposts = current_user.microposts.find_by(id: params[d]
-			redirect_to toor_user if @micropost.nil?
+			redirect_to root_url if @micropost.nil?
 		end	
 end
