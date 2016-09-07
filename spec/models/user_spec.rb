@@ -172,4 +172,5 @@ RSpec.describe User, type: :model do
 		its(:followed_users){should_not include(other_user)}
 	end
   end
+
 end

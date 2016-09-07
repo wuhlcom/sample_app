@@ -45,6 +45,20 @@ class UsersController < ApplicationController
 	flash[:success]="User destroyed."
 	redirect_to users_url
   end
+  
+   def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.followed_users.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
 
   private
 
@@ -52,15 +66,7 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
   end
-	
-  # Before filters
- # def signed_in_user
-#	unless signed_in?
-#	  store_location
- #	  redirect_to signin_url, notice: "Please sign in." unless signed_in?
-  #	end
- # end
-  
+
   def correct_user
 	@user=User.find(params[:id])
         redirect_to(root_path) unless current_user?(@user)
