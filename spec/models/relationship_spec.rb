@@ -7,6 +7,7 @@ RSpec.describe Relationship, type: :model do
   let(:followed) { FactoryGirl.create(:user) }
   let(:relationship) { follower.relationships.build(followed_id: followed.id) }
 
+  before sign_in(follower)
   subject { relationship }
 
   it { should be_valid }

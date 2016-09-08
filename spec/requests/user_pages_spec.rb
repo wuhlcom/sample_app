@@ -61,7 +61,10 @@ RSpec.describe "Users", type: :request do
     let!(:m1){FactoryGirl.create(:micropost,user: user, content:"Foo")}
     let!(:m2){FactoryGirl.create(:micropost,user: user, content:"Bar")}
 
-    before { visit user_path(user) }
+    before do
+	 sign_in(user)
+	 visit user_path(user) 
+    end
 
     it { should have_content(user.name) }
     it { should have_title(full_title(user.name)) }
