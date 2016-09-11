@@ -11,8 +11,8 @@ end
 def make_users
 	User.create!(name:"Example User",
 		     email:"example@railstutorial.org",
-		     password:"foobar",
-		     password_confirmation:"foobar",
+		     password:"123456",
+		     password_confirmation:"123456",
 		     admin:true)
 	User.create!(name:"myself",
 		     email:"378433855@qq.com",
