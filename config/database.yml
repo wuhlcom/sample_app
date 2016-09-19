@@ -5,26 +5,20 @@
 #   gem 'sqlite3'
 default: &default
   adapter: postgresql
+  database: sampleapp
   pool: 5
   timeout: 5000
+  username: vagrant
+  passowrd: vagrant
 
 development:
   <<: *default
-  database: sampleapp
-  username: wuhlcom
-  password: wuhlcom
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: sampleapp
-  username: wuhlcom
-  password: wuhlcom
 
 production:
   <<: *default
-  database: sampleapp
-  username: wuhlcom
-  password: wuhlcom
