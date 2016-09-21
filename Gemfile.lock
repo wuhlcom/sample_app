@@ -118,6 +118,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    puma (3.6.0)
     rack (1.5.5)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -235,6 +236,7 @@ DEPENDENCIES
   jquery-rails (= 2.2.1)
   libnotify (= 0.8.0)
   pg (= 0.15.1)
+  puma
   rails (= 4.0.8)
   rails_12factor (= 0.0.2)
   rspec-its
@@ -251,4 +253,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.5
+   1.13.1
